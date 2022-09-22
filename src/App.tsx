@@ -1,16 +1,16 @@
 import { Header } from "./Components/Header/Header"
-import { InputNewTodo } from "./Components/InputNewTodo/InputNewTodo"
-import { TasksList } from "./Components/TasksList/TasksList"
+import { NewTodo } from "./Components/NewTodo/NewTodo"
 import { GlobalStyle } from "./Global/GlobalStyle"
 
 
+
 function App() {
+ 
   return (
     <>
     <GlobalStyle />
     <Header />
-    <InputNewTodo />
-    <TasksList />
+    <NewTodo />
     </>
   )
 }
