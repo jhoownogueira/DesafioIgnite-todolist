@@ -2,7 +2,6 @@ import { Trash } from "phosphor-react";
 import { GridSystem } from "../../Global/GlobalStyle";
 import { Container, Task } from "./style";
 
-
 export function TasksList() {
  return (
   <>
