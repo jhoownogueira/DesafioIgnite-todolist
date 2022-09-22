@@ -9,8 +9,8 @@ export function InputNewTodo() {
    <GridSystem direction="rows" justify="space-between" items="center">
     <input type="text" id="todo" name="todo" placeholder="Adicione uma nova tarefa"/>
     <button>
-     <PlusCircle size={16} />
      Criar
+     <PlusCircle size={16} />
     </button>
    </GridSystem>
   </Form>
