@@ -12,11 +12,15 @@ interface TaskListProps {
  isComplete: boolean;
 }
 
+
 export function NewTodo() {
 
  const [taskList, setTaskList] = useState<TaskListProps[]>([]);
 
  const [InputValue, setInputValue] = useState('');
+
+ const [check, setCheck] = useState(false);
+
 
  function handleNewTodoChange(event: ChangeEvent<HTMLInputElement>) {
   setInputValue(event.target.value);
@@ -32,14 +36,32 @@ export function NewTodo() {
     isComplete: false
    }
   ]);
+  setInputValue('');
  }
+
+ function tarefaCompleta(tarefa: boolean) {
+  return tarefa.isComplete === true
+ }
+ const taskListComplete = taskList.filter(tarefaCompleta)
+
+
+
+ function handleCheckedChange(event: ChangeEvent<HTMLInputElement>) {
+  console.log(event.target)
+  setCheck(event.target.checked = !check)
+
+
+ }
+
+
  return (
   <>
   <Form onSubmit={handleCreateNewTodo}>
    <GridSystem direction="rows" justify="space-between" items="center">
     <input
-     name="todo" 
+     type='text'
      onChange={handleNewTodoChange}
+     value={InputValue}
      placeholder="Adicione uma nova tarefa"
      required
      />
@@ -54,29 +76,29 @@ export function NewTodo() {
     <header>
      <div className="left">
       <strong>Tarefas criadas</strong>
-      <span>5</span>
+      <span>{taskList.length}</span>
      </div>
      <div className="right">
       <strong>Concluídas</strong>
       <div className="tag">
-       <span>2</span>&nbsp;
-      <span>de 5</span>
+       <span>{taskListComplete.length}</span>&nbsp;
+      <span>de {taskList.length}</span>
       </div>
      </div>
     </header>
     <section>
      <ul>
       {
-       taskList.length == 0 ? <NoTasks />
-       :
-       taskList.map(task => {
+       taskList.length == 0 
+       ? <NoTasks />
+       : taskList.map(task => {
         return (
          <Task
          key={task.id}
          concluida={task.isComplete}
         >
          <div className="checkbox">
-          <input type="checkbox" name={task.id} id={task.id} />
+          <input type="checkbox" checked={check} onChange={handleCheckedChange} name={task.id} id={task.id} />
           <label htmlFor={task.id}></label>
          </div>
          <p>{task.title}</p>
