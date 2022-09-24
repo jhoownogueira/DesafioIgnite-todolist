@@ -1,5 +1,5 @@
 import { PlusCircle, Trash } from "phosphor-react";
-import { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, EventHandler, FormEvent, MouseEventHandler, useState } from "react";
 import { GridSystem } from "../../Global/GlobalStyle";
 import { TaskTable, Task } from "./style";
 import { v4 as uuidv4 } from "uuid";
@@ -19,9 +19,6 @@ export function NewTodo() {
 
  const [InputValue, setInputValue] = useState('');
 
- const [check, setCheck] = useState(false);
-
-
  function handleNewTodoChange(event: ChangeEvent<HTMLInputElement>) {
   setInputValue(event.target.value);
  }
@@ -39,20 +36,20 @@ export function NewTodo() {
   setInputValue('');
  }
 
- function tarefaCompleta(tarefa: boolean) {
+ const taskListComplete = taskList.filter(tarefaCompleta);
+ function tarefaCompleta(tarefa: TaskListProps) {
   return tarefa.isComplete === true
  }
- const taskListComplete = taskList.filter(tarefaCompleta)
-
-
-
+ 
  function handleCheckedChange(event: ChangeEvent<HTMLInputElement>) {
-  console.log(event.target)
-  setCheck(event.target.checked = !check)
-
-
+  const taskId = event.target.id;
+  const newTasks = taskList.map((item) => {
+     if(taskId == item.id)
+       item.isComplete = !item.isComplete;
+     return item;
+  });
+  setTaskList(newTasks)
  }
-
 
  return (
   <>
@@ -98,17 +95,17 @@ export function NewTodo() {
          concluida={task.isComplete}
         >
          <div className="checkbox">
-          <input type="checkbox" checked={check} onChange={handleCheckedChange} name={task.id} id={task.id} />
+          <input type="checkbox" onChange={handleCheckedChange} name={task.id} id={task.id} />
           <label htmlFor={task.id}></label>
          </div>
          <p>{task.title}</p>
-         <Trash size={20} />
+         <button type="button">
+          <Trash size={20} />
+         </button>
         </Task>
         )
        })
       }
-
-      
      </ul>
     </section>
    </GridSystem>

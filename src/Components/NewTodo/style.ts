@@ -175,9 +175,12 @@ export const Task = styled.li<Taskprops>`
                 text-decoration: ${props => props.concluida ? 'line-through' : 'unseat'};
             }
 
-            svg {
+            button {
                 width: 10%;
+                
+                svg {
                 color: var(--gray-300);
+                }
             }
     
 `
