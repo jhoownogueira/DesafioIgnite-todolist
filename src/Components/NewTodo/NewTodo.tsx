@@ -1,5 +1,5 @@
 import { PlusCircle, Trash } from "phosphor-react";
-import { ChangeEvent, EventHandler, FormEvent, MouseEventHandler, useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 import { GridSystem } from "../../Global/GlobalStyle";
 import { TaskTable, Task } from "./style";
 import { v4 as uuidv4 } from "uuid";
