@@ -2,20 +2,18 @@ import styled, { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
     :root {
-        --gray-100: #F2F2F2;
-        --gray-200: #D9D9D9;
-        --gray-300: #808080;
-        --gray-400: #333333;
-        --gray-500: #262626;
-        --gray-600: #1A1A1A;
-        --gray-700: #0D0D0D;
-        --white: #ffffff;
 
-        --primary: #4EA8DE;
-        --primary-dark: #1E6F9F;
-        --secondary: #8284FA;
-        --secondary-dark: #5E60CE;
-        --danger: #E25858;
+        --header: #E2E6EE;
+        --background: #F2F2F2;
+        --white: #ffffff;
+        --text: #2E2E48;
+        --text-light: rgba(46, 46, 72, 0.5); 
+        --liner-color: linear-gradient(90deg, #A478E8 0%, #516CF7 100%);
+        --primary: #516CF7;
+        --secondary: #A478E8;
+        --border-task: #E1E7FE;
+        --danger: #E87878;
+
     }
 
     * {
@@ -27,13 +25,13 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     body {
-        background: var(--gray-600);
+        background: var(--background);
     }
 
     body, textarea, input, button {
         font-size: 1rem;
         font-weight: 400;
-        font-family: 'Inter', sans-serif;
+        font-family: 'DM Sans', sans-serif;
     }
 
     button {

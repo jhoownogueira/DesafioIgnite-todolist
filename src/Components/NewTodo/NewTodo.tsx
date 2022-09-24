@@ -69,8 +69,7 @@ export function NewTodo() {
      required
      />
     <button>
-     Criar
-     <PlusCircle size={16} />
+     <PlusCircle size={24} />
     </button>
    </GridSystem>
   </Form>
@@ -106,7 +105,7 @@ export function NewTodo() {
          </div>
          <p>{task.title}</p>
          <button type="button" onClick={() => deleteTask(task)}>
-          <Trash size={20} />
+          <Trash size={20} weight="bold" />
          </button>
         </Task>
         )

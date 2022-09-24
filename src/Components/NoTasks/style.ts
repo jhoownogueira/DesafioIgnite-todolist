@@ -7,11 +7,15 @@ export const NoTasksList = styled.section`
     justify-content: center;
     align-items: center;
     padding: 64px 0;
-    border-top: 1px solid var(--gray-400);
+    border-radius: 8px;
+    border-top: 1px solid var(--secondary);
+    img {
+        opacity: 0.7;
+    }
     p {
         margin-top: 16px;
         width: 100%;
-        color: var(--gray-300);
+        color: var(--text-light);
         text-align: center;
     }
 
