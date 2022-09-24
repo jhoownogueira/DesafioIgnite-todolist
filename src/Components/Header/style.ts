@@ -6,5 +6,5 @@ export const StyleHeader = styled.header`
     display: flex;
     justify-content: center;
     align-items: center;
-    background: var(--gray-700);
+    background: var(--header);
 `

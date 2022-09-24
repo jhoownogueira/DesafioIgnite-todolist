@@ -9,37 +9,43 @@ export const Form = styled.form`
     align-items: center;
 
     input {
-        margin-right: 12px;
+        z-index: 1;
+        margin-right: -2px;
         width: 100%;
         height: 58px;
-        border-radius: 8px;
-        padding: 16px;
+        border-radius: 55px 0 0 55px;
+        padding: 24px;
         outline: 0;
-        border: 1px solid var(--gray-700);
-        background: var(--gray-500);
-        color: var(--gray-100);
+        border: 1px solid var(--white);
+        background: var(--white);
+        color: var(--text);
         &::placeholder {
-            color: var(--gray-300);
+            color: var(--text-light);
         }
         &:focus {
-            border: 1px solid var(--secondary-dark);
+            border: 1px solid var(--secondary);
         }
     }
     button {
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
+        z-index: 2;
 
         width: 100%;
-        max-width: 90px;
+        max-width: 75px;
         height: 58px;
-        border-radius: 8px;
-        padding: 16px;
-        background: var(--primary-dark);
+        border-radius: 0 55px 55px 0;
+        padding: 16px 24px 16px 16px;
+        background: var(--liner-color);
+        border: 0;
         color: var(--white);
         transition: all 0.2s;
         &:hover {
-            background: var(--primary);
+            filter: brightness(1.3);
+        }
+        &:active {
+            filter: brightness(0.8);
         }
     }
 `
@@ -68,7 +74,7 @@ export const TaskTable = styled.section`
                 padding: 2px 8px;
                 border-radius: 999px;
                 color: var(--white);
-                background: var(--gray-400);
+                background: var(--liner-color);
             }
         }
         .right {
@@ -85,7 +91,7 @@ export const TaskTable = styled.section`
                 padding: 8px 8px;
                 border-radius: 999px;
                 color: var(--white);
-                background: var(--gray-400);
+                background: var(--liner-color);
             }
         }
     }
@@ -103,8 +109,8 @@ export const Task = styled.li<Taskprops>`
 
             width: 100%;
             height: 72px;
-            background: var(--gray-500);
-            border: 1px solid var(--gray-400);
+            background: var(--white);
+            border: 1px solid var(--border-task);
             border-radius: 8px;
             display: flex;
             justify-content: flex-start;
@@ -168,18 +174,28 @@ export const Task = styled.li<Taskprops>`
                 
             }
 
-            p {
+            p { 
+                display: block;
                 width: 80%;
-                color: ${props => props.concluida ? "#808080" : "#ffffff"};
+                color: ${props => props.concluida ? "#2e2e488a" : "#2E2E48"};
                 font-size: 0.875rem;
                 text-decoration: ${props => props.concluida ? 'line-through' : 'unseat'};
+                @media(max-width: 520px) {
+                    padding-left: 16px;
+                }
             }
 
             button {
                 width: 10%;
-                
+
                 svg {
-                color: var(--gray-300);
+                color: var(--primary);
+                }
+                &:hover {
+                    
+                    svg {
+                    color: var(--danger);
+                    }
                 }
             }
     
