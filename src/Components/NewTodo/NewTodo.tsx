@@ -51,6 +51,12 @@ export function NewTodo() {
   setTaskList(newTasks)
  }
 
+ function deleteTask(task: TaskListProps) {
+  const newList = [...taskList]
+  newList.splice(taskList.indexOf(task), 1);
+  setTaskList(newList);
+ }
+
  return (
   <>
   <Form onSubmit={handleCreateNewTodo}>
@@ -99,7 +105,7 @@ export function NewTodo() {
           <label htmlFor={task.id}></label>
          </div>
          <p>{task.title}</p>
-         <button type="button">
+         <button type="button" onClick={() => deleteTask(task)}>
           <Trash size={20} />
          </button>
         </Task>
